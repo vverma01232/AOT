@@ -1,0 +1,345 @@
+import { assetUrl } from './site';
+
+export const CATEGORIES = [
+  { slug: 'all', label: 'ALL PRODUCTS' },
+  { slug: 'oilfield-equipment', label: 'OILFIELD EQUIPMENT' },
+  { slug: 'valves-manifolds', label: 'VALVES & MANIFOLDS' },
+  { slug: 'connections-fittings', label: 'CONNECTIONS & FITTINGS' },
+  { slug: 'flanges-gaskets', label: 'FLANGES & GASKETS' },
+  { slug: 'pipe-flowline', label: 'PIPE & FLOWLINE COMPONENTS' },
+  { slug: 'accessories', label: 'ACCESSORIES & CONSUMABLES' },
+];
+
+export const categoryLabel = (slug) =>
+  (CATEGORIES.find((c) => c.slug === slug) || {}).label || slug;
+
+const CONTACT_AOT = 'Contact AOT UAE for specifications';
+
+const RAW_PRODUCTS = [
+  {
+    slug: 'hammer-unions',
+    name: 'Hammer Unions',
+    cat: 'oilfield-equipment',
+    tagline: 'Heavy-duty flowline connection solutions',
+    desc: `AOT UAE manufactures a complete range of Hammer Unions in sizes from 1" to 12" with working pressures up to 15,000 PSI CWP. Available in both Standard & SOUR service.`,
+    rows: [
+      { k: 'Sizes', v: '1" to 12"' },
+      { k: 'Pressure', v: 'Up to 15,000 PSI CWP' },
+      { k: 'Service', v: 'Standard / SOUR' },
+      { k: 'Materials', v: 'Alloy Steel / Stainless Steel / Aluminium Bronze' },
+      { k: 'Connections', v: 'Threaded / Butt Weld / Socket Weld' },
+    ],
+  },
+  {
+    slug: 'hose-nipple-unions',
+    name: 'Hose Nipple Unions',
+    cat: 'oilfield-equipment',
+    tagline: 'Integral connections for hose assemblies',
+    desc: 'AOT UAE manufactures integral Hose Nipple Unions for all sizes and pressure ratings.',
+    rows: [
+      { k: 'Sizes', v: 'All sizes' },
+      { k: 'Pressure', v: 'All pressure ratings' },
+      { k: 'Construction', v: 'Integral' },
+      { k: 'Materials', v: CONTACT_AOT },
+      { k: 'Connections', v: CONTACT_AOT },
+    ],
+  },
+  {
+    slug: 'hammer-union-blinds-test-plugs',
+    name: 'Hammer Union Blinds & Test Plugs',
+    cat: 'oilfield-equipment',
+    tagline: 'Testing solutions for WECO connections',
+    desc: 'AOT UAE manufactures test plugs for the complete range of WECO connections with or without NPT ports, and with SS chain also.',
+    rows: [
+      { k: 'Configuration', v: 'With / without NPT ports' },
+      { k: 'Chain', v: 'SS chain available' },
+      { k: 'Range', v: 'Complete range of WECO connections' },
+      { k: 'Pressure', v: CONTACT_AOT },
+      { k: 'Materials', v: CONTACT_AOT },
+    ],
+  },
+  {
+    slug: 'swivel-joints',
+    name: 'Swivel Joints',
+    cat: 'oilfield-equipment',
+    tagline: 'Short sweep & long sweep, built to turn',
+    desc: `AOT UAE manufactures a complete range of Short Sweep & Long Sweep Swivel Joints, with working pressure up to 15,000 PSI CWP. Available in both Standard & SOUR service.`,
+    rows: [
+      { k: 'Types', v: 'Short Sweep / Long Sweep' },
+      { k: 'Pressure', v: 'Up to 15,000 PSI CWP' },
+      { k: 'Service', v: 'Standard / SOUR' },
+      { k: 'Materials', v: CONTACT_AOT },
+      { k: 'Connections', v: CONTACT_AOT },
+    ],
+  },
+  {
+    slug: 'plug-valves',
+    name: 'Plug Valves',
+    cat: 'valves-manifolds',
+    tagline: 'Low torque control, high pressure ready',
+    desc: `AOT UAE manufactures high-quality Low Torque Plug Valves in 2" x 1", 2" x 2" and 3" x 3" bore sizes, with working pressure up to 15,000 PSI CWP. Available in both Standard & SOUR service.`,
+    rows: [
+      { k: 'Sizes', v: '2" x 1" / 2" x 2" / 3" x 3"' },
+      { k: 'Pressure', v: 'Up to 15,000 PSI CWP' },
+      { k: 'Service', v: 'Standard / SOUR' },
+      { k: 'Type', v: 'Low Torque' },
+      { k: 'Materials', v: CONTACT_AOT },
+    ],
+  },
+  {
+    slug: 'check-valves',
+    name: 'Check Valves',
+    cat: 'valves-manifolds',
+    tagline: 'Heavy duty one-way flow control',
+    desc: 'AOT UAE manufactures heavy duty Check Valves for different pressure ratings in both Standard & SOUR service. Flapper type, Top Entry & Dart type Check Valves.',
+    rows: [
+      { k: 'Types', v: 'Flapper / Top Entry / Dart' },
+      { k: 'Pressure', v: 'Different pressure ratings' },
+      { k: 'Service', v: 'Standard / SOUR' },
+      { k: 'Materials', v: CONTACT_AOT },
+      { k: 'Connections', v: CONTACT_AOT },
+    ],
+  },
+  {
+    slug: 'choke-kill-manifolds',
+    name: 'Choke & Kill Manifolds',
+    cat: 'valves-manifolds',
+    tagline: 'Well control manifolds, standard & sour',
+    desc: 'AOT UAE manufactures Choke & Kill Manifolds in 2" & 3" sizes for both Standard & SOUR services. Cementing & Standpipe Manifolds are also available in different sizes.',
+    rows: [
+      { k: 'Sizes', v: '2" / 3"' },
+      { k: 'Service', v: 'Standard / SOUR' },
+      { k: 'Also available', v: 'Cementing & Standpipe Manifolds' },
+      { k: 'Pressure', v: CONTACT_AOT },
+      { k: 'Materials', v: CONTACT_AOT },
+    ],
+  },
+  {
+    slug: 'integral-fittings',
+    name: 'Integral Fittings',
+    cat: 'connections-fittings',
+    tagline: 'Heavy duty integral forged fittings',
+    desc: 'AOT UAE manufactures heavy duty Integral Forged Fittings with different WECO / Hammer Union connections, available in both Standard & SOUR services. Tees, Crosses, Elbows, Wyes & Laterals can be used together for any kind of installations.',
+    rows: [
+      { k: 'Types', v: 'Tees / Crosses / Elbows / Wyes / Laterals' },
+      { k: 'Connections', v: 'WECO / Hammer Union' },
+      { k: 'Service', v: 'Standard / SOUR' },
+      { k: 'Pressure', v: CONTACT_AOT },
+      { k: 'Materials', v: CONTACT_AOT },
+    ],
+  },
+  {
+    slug: 'buttweld-pipe-fittings',
+    name: 'Butt Weld Pipe Fittings',
+    cat: 'connections-fittings',
+    tagline: 'Fittings for every specification',
+    desc: 'AOT UAE manufactures Butt Weld Pipe Fittings in different sizes, thickness and specifications.',
+    rows: [
+      { k: 'Sizes', v: 'Different sizes' },
+      { k: 'Thickness', v: 'Different thickness' },
+      { k: 'Specifications', v: 'Different specifications' },
+      { k: 'Pressure', v: CONTACT_AOT },
+      { k: 'Materials', v: CONTACT_AOT },
+    ],
+  },
+  {
+    slug: 'studded-blocks',
+    name: 'Studded Blocks',
+    cat: 'connections-fittings',
+    tagline: 'Multi-way blocks to API specifications',
+    desc: 'AOT UAE manufactures high quality 3-Way & 4-Way studded blocks in different sizes & pressure ratings. All studded blocks are in accordance with API specifications.',
+    rows: [
+      { k: 'Configuration', v: '3-Way / 4-Way' },
+      { k: 'Sizes', v: 'Different sizes' },
+      { k: 'Pressure', v: 'Different pressure ratings' },
+      { k: 'Standard', v: 'API specifications' },
+      { k: 'Materials', v: CONTACT_AOT },
+    ],
+  },
+  {
+    slug: 'studs-nuts',
+    name: 'Studs & Nuts',
+    cat: 'connections-fittings',
+    tagline: 'Heavy duty fastening for flanges',
+    desc: 'AOT UAE manufactures heavy duty Studs & Nuts in different sizes for various kinds of flanges & other components.',
+    rows: [
+      { k: 'Sizes', v: 'Different sizes' },
+      { k: 'Application', v: 'Flanges & other components' },
+      { k: 'Materials', v: CONTACT_AOT },
+      { k: 'Pressure', v: CONTACT_AOT },
+      { k: 'Service', v: CONTACT_AOT },
+    ],
+  },
+  {
+    slug: 'forged-fittings',
+    name: 'Forged Fittings',
+    cat: 'connections-fittings',
+    tagline: 'A wide range, forged to perform',
+    desc: 'AOT UAE manufactures a wide range of Forged Fittings in different sizes & materials — Forged Elbow, Tee, Cross, Reducer, End Caps, Stub End, Nipple Fittings and other fittings in different sizes & pressure.',
+    rows: [
+      { k: 'Types', v: 'Elbow / Tee / Cross / Reducer / End Caps / Stub End / Nipple' },
+      { k: 'Sizes', v: 'Different sizes' },
+      { k: 'Pressure', v: 'Different pressure ratings' },
+      { k: 'Materials', v: CONTACT_AOT },
+      { k: 'Service', v: CONTACT_AOT },
+    ],
+  },
+  {
+    slug: 'spools-flanges',
+    name: 'Spools & Flanges',
+    cat: 'flanges-gaskets',
+    tagline: 'API-spec spools, flanges & drilling spools',
+    desc: 'AOT UAE manufactures a complete range of Spools, DSAs, Adapter Flanges, RTJ Flanges & Drilling Spools in all sizes as per API specifications.',
+    rows: [
+      { k: 'Types', v: 'Spools / DSAs / Adapter Flanges / RTJ Flanges / Drilling Spools' },
+      { k: 'Sizes', v: 'All sizes' },
+      { k: 'Standard', v: 'API specifications' },
+      { k: 'Pressure', v: CONTACT_AOT },
+      { k: 'Materials', v: CONTACT_AOT },
+    ],
+  },
+  {
+    slug: 'ring-joint-gaskets',
+    name: 'Ring Joint Gaskets',
+    cat: 'flanges-gaskets',
+    tagline: 'R, RX & BX — oval and octagonal',
+    desc: 'AOT UAE manufactures the complete range of Ring Joint Gaskets in both Soft Iron & Stainless Steel. RTJs are available in R, RX, BX styles and in both Oval & Octagonal styles.',
+    rows: [
+      { k: 'Styles', v: 'R / RX / BX' },
+      { k: 'Profiles', v: 'Oval / Octagonal' },
+      { k: 'Materials', v: 'Soft Iron / Stainless Steel' },
+      { k: 'Sizes', v: 'Complete range' },
+      { k: 'Pressure', v: CONTACT_AOT },
+    ],
+  },
+  {
+    slug: 'pup-joints',
+    name: 'Pup Joints',
+    cat: 'pipe-flowline',
+    tagline: 'From 1" to 4", up to 20 feet long',
+    desc: 'AOT UAE manufactures Pup Joints from 1" to 4" sizes available in different lengths up to 20 Feet long, in Integral, Threaded & Butt Weld constructions.',
+    rows: [
+      { k: 'Sizes', v: '1" to 4"' },
+      { k: 'Lengths', v: 'Up to 20 Feet' },
+      { k: 'Constructions', v: 'Integral / Threaded / Butt Weld' },
+      { k: 'Pressure', v: CONTACT_AOT },
+      { k: 'Materials', v: CONTACT_AOT },
+    ],
+  },
+  {
+    slug: 'chiksan-loops',
+    name: 'Chiksan Loops / Steel Hose Assemblies',
+    cat: 'pipe-flowline',
+    tagline: 'High-pressure cements & flush lines',
+    desc: 'AOT UAE manufactures high quality Chiksan Loops in different sizes with pressure rating up to 15,000 PSI CWP. Chiksan Loops are available with Style-10 & Style-50 Swivel Joints.',
+    rows: [
+      { k: 'Pressure', v: 'Up to 15,000 PSI CWP' },
+      { k: 'Swivel Joints', v: 'Style-10 / Style-50' },
+      { k: 'Sizes', v: 'Different sizes' },
+      { k: 'Materials', v: CONTACT_AOT },
+      { k: 'Connections', v: CONTACT_AOT },
+    ],
+  },
+  {
+    slug: 'retainer-segments-rings',
+    name: 'Retainer Segments & Rings',
+    cat: 'accessories',
+    tagline: 'For every size & figure of hammer union',
+    desc: 'Retainer Segments & Retainer Rings are available for all sizes & figures of Hammer Unions, in both Standard & SOUR service.',
+    rows: [
+      { k: 'Sizes', v: 'All sizes & figures of Hammer Unions' },
+      { k: 'Service', v: 'Standard / SOUR' },
+      { k: 'Materials', v: CONTACT_AOT },
+      { k: 'Pressure', v: CONTACT_AOT },
+      { k: 'Connections', v: CONTACT_AOT },
+    ],
+  },
+  {
+    slug: 'plastic-thread-protectors',
+    name: 'Plastic Thread Protectors',
+    cat: 'accessories',
+    tagline: 'Protection for threads in transit',
+    desc: 'AOT UAE manufactures a complete range of Plastic Thread Protectors for Hammer Unions, Pup Joints, Drill Pipes, Tubings and many other products.',
+    rows: [
+      { k: 'Fits', v: 'Hammer Unions / Pup Joints / Drill Pipes / Tubings' },
+      { k: 'Range', v: 'Complete range' },
+      { k: 'Materials', v: CONTACT_AOT },
+      { k: 'Pressure', v: CONTACT_AOT },
+      { k: 'Service', v: CONTACT_AOT },
+    ],
+  },
+  {
+    slug: 'seal-rings-orings',
+    name: 'Seal Rings & O-Rings',
+    cat: 'accessories',
+    tagline: 'High quality rubber seals, standard & sour',
+    desc: 'AOT UAE manufactures high quality rubber seals for all sizes of Hammer Unions & other products. Seals are available for both Standard service & SOUR service.',
+    rows: [
+      { k: 'Fits', v: 'All sizes of Hammer Unions & other products' },
+      { k: 'Service', v: 'Standard / SOUR' },
+      { k: 'Materials', v: CONTACT_AOT },
+      { k: 'Pressure', v: CONTACT_AOT },
+      { k: 'Sizes', v: CONTACT_AOT },
+    ],
+  },
+];
+
+const RELATED = {
+  'hammer-unions': ['swivel-joints', 'integral-fittings', 'pup-joints'],
+  'hose-nipple-unions': ['hammer-unions', 'pup-joints', 'seal-rings-orings'],
+  'hammer-union-blinds-test-plugs': ['hammer-unions', 'plug-valves', 'check-valves'],
+  'swivel-joints': ['hammer-unions', 'chiksan-loops', 'integral-fittings'],
+  'plug-valves': ['check-valves', 'choke-kill-manifolds', 'hammer-unions'],
+  'check-valves': ['plug-valves', 'choke-kill-manifolds', 'hammer-unions'],
+  'choke-kill-manifolds': ['plug-valves', 'check-valves', 'spools-flanges'],
+  'integral-fittings': ['hammer-unions', 'forged-fittings', 'pup-joints'],
+  'buttweld-pipe-fittings': ['forged-fittings', 'studded-blocks', 'spools-flanges'],
+  'studded-blocks': ['spools-flanges', 'integral-fittings', 'forged-fittings'],
+  'studs-nuts': ['spools-flanges', 'ring-joint-gaskets', 'buttweld-pipe-fittings'],
+  'forged-fittings': ['integral-fittings', 'buttweld-pipe-fittings', 'studs-nuts'],
+  'spools-flanges': ['ring-joint-gaskets', 'studded-blocks', 'hammer-unions'],
+  'ring-joint-gaskets': ['spools-flanges', 'studs-nuts', 'hammer-unions'],
+  'pup-joints': ['hammer-unions', 'integral-fittings', 'hose-nipple-unions'],
+  'chiksan-loops': ['swivel-joints', 'hammer-unions', 'pup-joints'],
+  'retainer-segments-rings': ['hammer-unions', 'seal-rings-orings', 'plastic-thread-protectors'],
+  'plastic-thread-protectors': ['hammer-unions', 'pup-joints', 'retainer-segments-rings'],
+  'seal-rings-orings': ['hammer-unions', 'retainer-segments-rings', 'plastic-thread-protectors'],
+};
+
+export const PRODUCTS = RAW_PRODUCTS.map((product) => {
+  const coreProducts = [
+    'hammer-unions',
+    'swivel-joints',
+    'plug-valves',
+    'check-valves',
+    'choke-kill-manifolds',
+    'integral-fittings',
+    'spools-flanges',
+    'ring-joint-gaskets',
+  ];
+
+  return {
+    ...product,
+    core: coreProducts.includes(product.slug),
+    short: product.desc,
+    overview: product.desc,
+    image: assetUrl(`products/${product.slug}.jpg`),
+    brochureImage: assetUrl(`products/${product.slug}.jpg`),
+    specs: (product.rows || []).map(({ k, v }) => ({ k, v })),
+    applications: product.desc,
+    related: RELATED[product.slug] || ['hammer-unions', 'plug-valves', 'swivel-joints'],
+  };
+});
+
+export const getProduct = (slug) => PRODUCTS.find((p) => p.slug === slug);
+
+export const CORE_PRODUCTS = PRODUCTS.filter((product) => product.core);
+
+export const FEATURED = [
+  'hammer-unions',
+  'plug-valves',
+  'swivel-joints',
+  'choke-kill-manifolds',
+  'pup-joints',
+  'ring-joint-gaskets',
+].map((slug) => getProduct(slug));

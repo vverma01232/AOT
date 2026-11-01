@@ -1,0 +1,132 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --aot-red: #e3000f;
+  --aot-charcoal: #17191d;
+}
+
+html {
+  scroll-behavior: auto;
+}
+
+body {
+  @apply bg-white text-brand-graphite font-body antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--aot-red);
+  color: #fff;
+}
+
+:focus-visible {
+  outline: 2px solid var(--aot-red);
+  outline-offset: 2px;
+}
+
+html {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;
+}
+
+@layer utilities {
+  .font-heading { font-family: "Barlow Condensed", "Outfit", sans-serif; }
+  .font-mono-tech { font-family: "IBM Plex Mono", Menlo, monospace; }
+
+  /* subtle blueprint grid over dark sections */
+  .blueprint-grid {
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+    background-size: 56px 56px;
+  }
+  .blueprint-grid-light {
+    background-image:
+      linear-gradient(rgba(23, 25, 29, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(23, 25, 29, 0.05) 1px, transparent 1px);
+    background-size: 56px 56px;
+  }
+
+  /* film grain overlay */
+  .grain::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.5;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.32'/%3E%3C/svg%3E");
+  }
+
+  /* corner tick frame for clipped product frames */
+  .corner-ticks {
+    position: relative;
+    border-radius: 1rem;
+    overflow: hidden;
+  }
+  .corner-ticks::before,
+  .corner-ticks::after {
+    content: "";
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    z-index: 10;
+    transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .corner-ticks::before {
+    top: -1px;
+    left: -1px;
+    border-top: 2px solid var(--aot-red);
+    border-left: 2px solid var(--aot-red);
+  }
+  .corner-ticks::after {
+    bottom: -1px;
+    right: -1px;
+    border-bottom: 2px solid var(--aot-red);
+    border-right: 2px solid var(--aot-red);
+  }
+  .corner-ticks:hover::before,
+  .corner-ticks:hover::after {
+    width: 44px;
+    height: 44px;
+  }
+
+  .text-stroke-dark {
+    -webkit-text-stroke: 1px rgba(23, 25, 29, 0.22);
+    color: transparent;
+  }
+  .text-stroke-light {
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.22);
+    color: transparent;
+  }
+
+  .marquee-track {
+    display: flex;
+    width: max-content;
+    animation: marquee-drift 70s linear infinite;
+  }
+  @keyframes marquee-drift {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  .marquee-track:hover {
+    animation-play-state: paused;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .marquee-track { animation: none; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
