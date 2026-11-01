@@ -9,3 +9,5 @@ The GitHub Actions workflow in `.github/workflows/deploy-pages.yml` builds and d
 3. Check the workflow run for the published Pages URL.
 
 The build reads the repository base path from the GitHub Pages configuration so client-side routes and public assets work both at the repository URL and when a custom domain is configured. The site currently uses `https://aotuae.com` for canonical and sitemap URLs; configure that domain in GitHub Pages and its DNS if it is the intended public address.
+
+The `public/CNAME` file keeps the custom domain attached when the Pages workflow publishes a new build.
